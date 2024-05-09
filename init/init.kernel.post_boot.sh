@@ -67,22 +67,6 @@ function configure_zram_parameters() {
 	fi
 }
 
-verify_pasr_support()
-{
-	ddr_type=`od -An -tx /proc/device-tree/memory/ddr_device_type`
-	ddr_type5="08"
-
-	if [ -d /sys/kernel/mem-offline ]; then
-		#only LPDDR5 supports PAAR
-		if [ ${ddr_type:4:2} != $ddr_type5 ]; then
-			setprop vendor.pasr.activemode.enabled false
-		fi
-
-		setprop vendor.pasr.enabled true
-		echo "pasr-enabled"
-	fi
-}
-
 function configure_read_ahead_kb_values() {
 	dmpts=$(ls /sys/block/*/queue/read_ahead_kb | grep -e dm -e mmc -e sd)
 	# dmpts holds below read_ahead_kb nodes if exists:
