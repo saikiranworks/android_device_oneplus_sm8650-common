@@ -24,6 +24,12 @@
     "remote": "crdroid"
   },
   {
+    "repository": "saikiranworks/proprietary_vendor_oneplus_dolby",
+    "target_path": "vendor/oneplus/dolby",
+    "remote": "crdroid",
+    "branch": "17-caihong"
+  },
+  {
     "repository": "crdroidandroid/proprietary_vendor_oneplus_ir",
     "target_path": "vendor/oneplus/ir",
     "remote": "crdroid",
