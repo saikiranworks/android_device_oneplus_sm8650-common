@@ -156,8 +156,7 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Fastboot
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot-service.example_recovery \
-    fastbootd
+    android.hardware.fastboot-service.example_recovery
 
 # Fingerprint
 ifneq ($(TARGET_IS_TABLET),true)
