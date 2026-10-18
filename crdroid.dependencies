@@ -1,37 +1,56 @@
 [
   {
-    "repository": "crdroidandroid/android_kernel_oneplus_sm8650",
-    "target_path": "kernel/oneplus/sm8650"
+    "repository": "saikiranworks/android_kernel_oneplus_sm8650",
+    "target_path": "kernel/oneplus/sm8650",
+    "branch": "17-caihong",
+    "remote": "crdroid"
   },
   {
-    "repository": "crdroidandroid/android_kernel_oneplus_sm8650-devicetrees",
-    "target_path": "kernel/oneplus/sm8650-devicetrees"
+    "repository": "saikiranworks/android_kernel_oneplus_sm8650-devicetrees",
+    "target_path": "kernel/oneplus/sm8650-devicetrees",
+    "branch": "17-caihong",
+    "remote": "crdroid"
   },
   {
-    "repository": "crdroidandroid/android_kernel_oneplus_sm8650-modules",
-    "target_path": "kernel/oneplus/sm8650-modules"
+    "repository": "saikiranworks/android_kernel_oneplus_sm8650-modules",
+    "target_path": "kernel/oneplus/sm8650-modules",
+    "branch": "17-caihong",
+    "remote": "crdroid"
   },
   {
-    "repository": "crdroidandroid/android_hardware_oplus",
-    "target_path": "hardware/oplus"
+    "repository": "saikiranworks/android_hardware_oplus",
+    "target_path": "hardware/oplus",
+    "branch": "17-caihong",
+    "remote": "crdroid"
   },
   {
-    "repository": "crdroidandroid/android_packages_apps_LunarisDolby",
-    "target_path": "packages/apps/LunarisDolby"
+    "repository": "saikiranworks/android_packages_apps_LunarisDolby",
+    "target_path": "packages/apps/LunarisDolby",
+    "branch": "17-caihong",
+    "remote": "crdroid"
   },
   {
-    "repository": "crdroidandroid/proprietary_vendor_oneplus_dolby",
+    "repository": "saikiranworks/proprietary_vendor_oneplus_dolby",
     "target_path": "vendor/oneplus/dolby",
-    "remote": "crdroid-gitlab"
+    "remote": "crdroid",
+    "branch": "17-caihong"
   },
   {
-    "repository": "crdroidandroid/proprietary_vendor_oneplus_ir",
+    "repository": "saikiranworks/proprietary_vendor_oneplus_ir",
     "target_path": "vendor/oneplus/ir",
-    "remote": "crdroid-gitlab"
+    "remote": "crdroid",
+    "branch": "17-caihong"
   },
   {
-    "repository": "crdroidandroid/proprietary_vendor_oneplus_sm8650-common",
+    "repository": "saikiranworks/proprietary_vendor_oneplus_sm8650-common",
     "target_path": "vendor/oneplus/sm8650-common",
-    "remote": "crdroid-gitlab"
+    "remote": "crdroid",
+    "branch": "17-caihong"
+  },
+  {
+    "repository": "saikiranworks/vendor_oplus_camera",
+    "target_path": "vendor/oplus/camera",
+    "branch": "17-caihong",
+    "remote": "crdroid"
   }
 ]
