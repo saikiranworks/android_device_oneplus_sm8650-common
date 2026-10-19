@@ -16,12 +16,20 @@ AB_OTA_POSTINSTALL_CONFIG += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_vendor=true \
     POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=ext4 \
+    FILESYSTEM_TYPE_vendor=erofs \
     POSTINSTALL_OPTIONAL_vendor=true
+
+# Anti-rollback check on the new slot's xbl_config before it can be booted
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_odm=true \
+    POSTINSTALL_PATH_odm=bin/xbl_config_arb_check \
+    FILESYSTEM_TYPE_odm=erofs \
+    POSTINSTALL_OPTIONAL_odm=false
 
 PRODUCT_PACKAGES += \
     checkpoint_gc \
-    otapreopt_script
+    otapreopt_script \
+    xbl_config_arb_check
 
 PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
 
@@ -86,10 +94,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
-# Passthrough charging
-PRODUCT_PACKAGES += \
-    BypassCharge
-
 # Camera
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.concurrent.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.concurrent.xml \
@@ -97,9 +101,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
-
-# Characteristics
-PRODUCT_CHARACTERISTICS := nosdcard
 
 # Context Hub
 ifneq ($(TARGET_IS_TABLET),true)
@@ -127,7 +128,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.demura-V1-ndk.vendor
 
 # Dolby
-$(call inherit-product, vendor/sony/dolby/sonydolby.mk)
+$(call inherit-product, vendor/oneplus/dolby/config.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -260,7 +261,7 @@ PRODUCT_PACKAGES += \
     vendor.oplus.hardware.performance-service
 
 # Oplus IR
-$(call inherit-product-if-exists, vendor/oneplus/ir/ir.mk)
+$(call inherit-product, vendor/oneplus/ir/config.mk)
 
 # Overlays
 $(call inherit-product, hardware/oplus/overlay/overlay.mk)
@@ -290,7 +291,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Platform
 TARGET_BOARD_PLATFORM := pineapple
 
-# QTI components
+# QTI components (no telephony: wifi-only tablet)
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
     alarm \
@@ -301,7 +302,6 @@ TARGET_COMMON_QTI_COMPONENTS := \
     gps \
     overlay \
     perf \
-    telephony \
     usb \
     wfd \
     wlan
@@ -432,3 +432,7 @@ PRODUCT_PACKAGES += \
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8650-common/sm8650-common-vendor.mk)
+
+# Tablet: caihong-tuned task profiles
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/profiles/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
