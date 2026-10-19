@@ -150,7 +150,29 @@ vendor/etc/ASR_binary/Whisper/speech_float.eai
 
 # Audio FX modules
 vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libquasar.so
+odm/lib64/soundfx/liboplus_spatializer.so:vendor/lib64/soundfx/liboplus_spatializer.so
+odm/lib64/liboplus_spat_audiox.so:vendor/lib64/liboplus_spat_audiox.so
+odm/etc/media_codecs_dolby_vision.xml:vendor/etc/media_codecs_dolby_vision.xml
+odm/etc/spatializer/HP_MOVIE_ANALOG.bin
+odm/etc/spatializer/HP_MOVIE_BLUETOOTH.bin
+odm/etc/spatializer/HP_MOVIE_DIGITAL.bin
+odm/etc/spatializer/HP_MOVIE_GALILEO.bin
+odm/etc/spatializer/HP_MUSIC_ANALOG.bin
+odm/etc/spatializer/HP_MUSIC_BLUETOOTH.bin
+odm/etc/spatializer/HP_MUSIC_DIGITAL.bin
+odm/etc/spatializer/HP_MUSIC_GALILEO.bin
+odm/etc/spatializer/SPAT_AUDIOX_ROOMMODEL_MOVIE.bin
+odm/etc/spatializer/SPAT_AUDIOX_ROOMMODEL_MUSIC.bin
+odm/etc/spatializer/SPK_MOVIE_lvl1.bin
+odm/etc/spatializer/SPK_MOVIE_lvl2.bin
+odm/etc/spatializer/SPK_MOVIE_lvl3.bin
+odm/etc/spatializer/SPK_MOVIE_lvl4.bin
+odm/etc/spatializer/SPK_MOVIE_lvl5.bin
+odm/etc/spatializer/SPK_MOVIE_lvl6.bin
+odm/etc/spatializer/SPK_MOVIE_lvl7.bin
+odm/etc/spatializer/SPK_MOVIE_lvl8.bin
+odm/etc/spatializer/SPK_MOVIE_lvl9.bin
+odm/etc/spatializer/SPK_MOVIE_lvl10.bin
 vendor/lib64/soundfx/libshoebox.so
 
 # Bluetooth
@@ -578,6 +600,9 @@ vendor/lib64/vendor.qti.hardware.iop@1.0.so
 vendor/lib64/vendor.qti.hardware.iop@2.0.so
 vendor/lib64/vendor.qti.hardware.perf2-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.power.powermodule-V1-ndk.so
+vendor/lib64/libpasrutils.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
 vendor/lib64/vendor.qti.memory.pasrmanager-V1-ndk.so
 
 # PSI Client
@@ -1078,3 +1103,20 @@ vendor/lib64/libwfduibcsrcinterface_vendor.so
 vendor/lib64/libwfdutils_proprietary.so
 vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
+
+# QTI BoostFramework clients from stock full OTA OPD2403_16.0.5.1301(EX01)
+# (EU OPD2403EEA, ARB 1). Not on the boot classpath; framework loads the jars
+# by path. perfservice is intentionally not shipped.
+system/framework/QPerformance.jar
+system/framework/QXPerformance.jar
+system/framework/UxPerformance.jar
+system/lib64/vendor.qti.hardware.perf2-V1-ndk.so;MODULE_SUFFIX=.system
+system_ext/lib64/libqti-at.so
+system_ext/lib64/libqti-iopd-client_system.so
+system_ext/lib64/libqti-perfd-client_system.so
+system_ext/lib64/libqti_performance.so
+system_ext/lib64/vendor.qti.hardware.iop@2.0.so;MODULE_SUFFIX=.system
+system_ext/lib64/vendor.qti.hardware.perf@2.0.so
+system_ext/lib64/vendor.qti.hardware.perf@2.1.so
+system_ext/lib64/vendor.qti.hardware.perf@2.2.so
+system_ext/lib64/vendor.qti.hardware.perf@2.3.so
