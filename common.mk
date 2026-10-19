@@ -291,7 +291,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Platform
 TARGET_BOARD_PLATFORM := pineapple
 
-# QTI components (no telephony: wifi-only tablet)
+# QTI components
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
     alarm \
@@ -305,6 +305,11 @@ TARGET_COMMON_QTI_COMPONENTS := \
     usb \
     wfd \
     wlan
+
+# Wifi-only tablets have no modem
+ifneq ($(TARGET_IS_TABLET),true)
+TARGET_COMMON_QTI_COMPONENTS += telephony
+endif
 
 # QSPA
 PRODUCT_PACKAGES += \
