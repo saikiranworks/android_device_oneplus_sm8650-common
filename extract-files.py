@@ -116,6 +116,8 @@ blob_fixups: blob_fixups_user_type = {
         ),
     'vendor/etc/pwr/PowerFeatureConfig.xml': blob_fixup()
         .regex_replace(r'(<Name>GamePowerOptFeature</Name>\s*<Enable>)0(<\/Enable>)', r'\g<1>1\g<2>'),
+    'odm/lib64/soundfx/liboplus_spatializer.so': blob_fixup()
+        .replace_needed('libc.._shared.so', 'libc++.so'),
     'vendor/etc/sensors/hals.conf': blob_fixup()
         .regex_replace(r'sensors\.qsh\.so', 'sensors.fusionlight.so')
         .add_line_if_missing('sensors.oplus.so'),
