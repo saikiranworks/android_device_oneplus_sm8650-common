@@ -156,6 +156,7 @@ vendor/lib64/soundfx/libshoebox.so
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.1-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.1-service-qti.rc
+vendor/etc/vintf/manifest/bluetooth_audio.xml:vendor/etc/vintf/manifest/bluetooth_audio_qti.xml
 vendor/etc/vintf/manifest/bttpi-saidl.xml
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.bluetooth@1.1-impl-qti.so
@@ -496,6 +497,13 @@ vendor/lib64/libpdnotifier.so
 vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
+
+# PSI Client
+vendor/bin/hw/vendor.qti.psiclient@1.0-service
+vendor/etc/init/vendor.qti.psiclient@1.0-service.rc
+vendor/lib64/libpasrutils.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
 
 # Performance
 vendor/bin/qlm-service
@@ -920,10 +928,6 @@ vendor/etc/oplus_Widevine_licenses.pfm
 odm/bin/init.oplus.wifi.sh
 odm/etc/init/hw/init.oplus.wifi.rc
 vendor/etc/init/init.vendor.wlan.rc
-vendor/etc/wifi/p2p_supplicant_overlay.conf
-vendor/etc/wifi/vendor_cmd.xml
-vendor/etc/wifi/wpa_supplicant_overlay.conf
-
 
 # WiFi Display (vendor)
 vendor/bin/wfdhdcphalservice
